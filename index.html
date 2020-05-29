@@ -73,6 +73,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <!-- Firebase Scripts -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBNKz_EzKlSmsQ_zTdV_AiEmat1_XaIQCE",
+            authDomain: "codebit-d14e1.firebaseapp.com",
+            databaseURL: "https://codebit-d14e1.firebaseio.com",
+            projectId: "codebit-d14e1",
+            storageBucket: "codebit-d14e1.appspot.com",
+            messagingSenderId: "542961027643",
+            appId: "1:542961027643:web:55b589a0952ce1e23e2a1e",
+            measurementId: "G-97N79JF9VE"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const auth = firebase.auth();
+    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
