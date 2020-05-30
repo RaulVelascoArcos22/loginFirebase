@@ -22,26 +22,35 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto ">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Ingresar</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModalI" >Ingresar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">Registrar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cerrar Sesion</a>
+                        <a class="nav-link" href="#" id="cerrarSesion">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Fin:Navegacion -->
+    <!-- Contenido principal-->
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="list-group posts" >
+                </ul>
+            </div>
+        </div>
+    </div>
     <!-- Inicio:Ventana Modal -->
     <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -49,7 +58,7 @@
                 <div class="modal-body">
                     <form id="signup-form">
                         <div class="form-group">
-                            <input type="text" id="signup-email" class="form-control" placeholder="Correo Electronico"
+                            <input type="email" id="signup-email" class="form-control" placeholder="Correo Electronico"
                                 required>
                         </div>
                         <div class="form-group">
@@ -62,7 +71,35 @@
             </div>
         </div>
     </div>
-    <!-- Fin:Ventana Modal -->
+    <!-- Fin:Ventana Modal Registro -->
+    <!-- Inicio:Ventana Modal Login -->
+    <div class="modal fade" id="signupModalI" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingresar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <input type="email" id="login-email" class="form-control" placeholder="Correo Electronico"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="login-password" class="form-control" placeholder="Contraseña"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin:Ventana Modal Login -->
     <!-- Script Boostrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -77,6 +114,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -98,6 +136,7 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         const auth = firebase.auth();
+        const fs = firebase.firestore();
     </script>
     <script src="main.js"></script>
 </body>
