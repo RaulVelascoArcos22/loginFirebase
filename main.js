@@ -1,3 +1,10 @@
+const loginCheck = user =>{
+    if(user){
+
+    }else{
+        
+    }
+}
 // Registro de usuarios
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
@@ -11,7 +18,6 @@ signupForm.addEventListener('submit', (e) => {
             signupForm.reset();
             //Cerrar el modal
             $('#signupModal').modal('hide')
-            console.log("Registrado");
         });
 });
 //Validad el correo 
@@ -26,8 +32,7 @@ loginForm - addEventListener('submit', (e) => {
             //limpia el formulario
             signupForm.reset();
             //Cerrar el modal
-            $('#signupModalI').modal('hide')
-            console.log("Bienvenido");
+            $('#signupModalI').modal('hide');
         })
 });
 // Cerrar sesion
@@ -35,7 +40,6 @@ const cerrar = document.querySelector('#cerrarSesion');
 cerrar.addEventListener('click', e => {
     e.preventDefault();
     auth.signOut().then(() => {
-        console.log("Fin");
     });
 });
 // Google login
@@ -50,7 +54,23 @@ googleButton.addEventListener('click', (e) => {
             signupForm.reset();
             //Cerrar el modal
             $('#signupModalI').modal('hide');
-            console.log("Bien");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+// Facebook login
+const facebookButton = document.querySelector('#facebookLogin');
+facebookButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    //  signInForm.reset();
+    const provider = new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(provider)
+        .then(result => {
+            //limpia el formulario
+            signupForm.reset();
+            //Cerrar el modal
+            $('#signupModalI').modal('hide');
         })
         .catch(err => {
             console.log(err);
