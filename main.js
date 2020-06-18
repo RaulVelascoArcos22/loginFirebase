@@ -1,8 +1,12 @@
+const logetlink = document.querySelectorAll('.loggod-out');
+const logetlinkIn = document.querySelectorAll('.loggod-in');
 const loginCheck = user =>{
     if(user){
-
+        logetlinkIn.forEach(link => link.style.display = 'block');
+        logetlink.forEach(link => link.style.display = 'none');
     }else{
-        
+        logetlinkIn.forEach(link => link.style.display = 'none');
+        logetlink.forEach(link => link.style.display = 'block');
     }
 }
 // Registro de usuarios
@@ -14,6 +18,7 @@ signupForm.addEventListener('submit', (e) => {
     auth
         .createUserWithEmailAndPassword(email, password)
         .then(userCredential => {
+            console.log("Bien");
             //limpia el formulario
             signupForm.reset();
             //Cerrar el modal
@@ -105,8 +110,10 @@ auth.onAuthStateChanged(user => {
             .get()
             .then((snapshot) => {
                 setupPosts(snapshot.docs);
+                loginCheck(user);
             });
     } else {
         setupPosts([]);
+        loginCheck(user);
     }
 });
